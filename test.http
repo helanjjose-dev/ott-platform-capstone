@@ -1,0 +1,88 @@
+### ==========================================
+### 1. HEALTH CHECK
+### ==========================================
+GET http://localhost:3000/health
+
+### ==========================================
+### 2. FRESH ADMIN REGISTRATION
+### ==========================================
+### Click "Send Request" here FIRST to create the account
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "final_boss",
+    "email": "secureadmin@example.com",
+    "password": "securePassword123",
+    "role": "admin"
+}
+
+### ==========================================
+### 3. ADMIN LOGIN
+### ==========================================
+### Click "Send Request" here SECOND to receive your active JWT Token
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "secureadmin@example.com",
+    "password": "securePassword123"
+}
+
+### ==========================================
+### 4. PROTECTED MOVIE ACCESS
+### ==========================================
+### Copy the token string from the login response and paste it right after "Bearer"
+POST http://localhost:3000/api/movies/add
+Authorization: Bearer YOUR_NEW_TOKEN_HERE
+Content-Type: application/json
+
+{
+    "title": "Inception",
+    "genre": "Sci-Fi",
+    "duration": "148 mins"
+}
+
+### ==========================================
+### 4. MOVIES ROUTES
+### ==========================================
+
+### Get Public Movies (No Token Required)
+GET http://localhost:3000/api/movies/list
+
+### Try to Add a Movie (Protected Admin Route)
+### PASTE YOUR COPIED ADMIN TOKEN RIGHT AFTER "Bearer " BELOW
+POST http://localhost:3000/api/movies/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTVjZjVjMTZhZGZhYzAwNzcxNTBiZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3OTgxNDU1OCwiZXhwIjoxNzc5OTAwOTU4fQ.D0290qmVJjtG4wLBxGf5lq6vAUHIEEmlBASaxm9jfV0
+Content-Type: application/json
+
+{
+    "title": "Inception",
+    "genre": "Sci-Fi",
+    "duration": "148 mins"
+}
+### ==========================================
+### 5. WATCHLIST FEATURES
+### ==========================================
+
+### Add Movie to Watchlist
+POST http://localhost:3000/api/users/watchlist/add
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTVkMWQwMGUxZGQ5NGQ4NTY3ZGI3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3OTgxOTIwNSwiZXhwIjoxNzc5OTA1NjA1fQ.YtENeUtXdPSAa_Srn0mYjxZsOv3TGwQLPa9fN15Ov7k
+Content-Type: application/json
+
+{
+    "movieId": "6a15d0ccb19cfa748aed1ebf"
+}
+
+### Get My Watchlist
+GET http://localhost:3000/api/users/watchlist
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTVkMWQwMGUxZGQ5NGQ4NTY3ZGI3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3OTgxOTIwNSwiZXhwIjoxNzc5OTA1NjA1fQ.YtENeUtXdPSAa_Srn0mYjxZsOv3TGwQLPa9fN15Ov7k
+### ==========================================
+### 6. CATALOG SEARCH FEATURES (No Token Needed)
+### ==========================================
+
+### Search by Title Keyword (e.g., "cept")
+GET http://localhost:3000/api/movies/search?title=cept
+
+### Search by Genre (e.g., "Sci-Fi")
+GET http://localhost:3000/api/movies/search?genre=Sci-Fi
