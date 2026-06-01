@@ -1,0 +1,720 @@
+/* Import highly readable, premium geometric fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --sidebar-width: 260px;
+  --bg-deep: #0a0a0c;
+  --bg-surface: #13131a;
+  --bg-surface-hover: #1c1c27;
+  --brand-color: #E50914; /* Cinematic Red */
+  --text-main: #f8f9fa;   /* Ultra-readable off-white */
+  --text-dim: #94a3b8;    /* Muted slate blue for secondary elements */
+  
+  /* Typography Scale */
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Master Layout Framework */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: #020203;
+  border-right: 1px solid #141419;
+  padding: 2.5rem 1.2rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand h1 {
+  font-family: var(--font-display);
+  color: var(--text-main);
+  font-size: 1.8rem;
+  margin: 0 0 3rem 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand h1::after {
+  content: '.';
+  color: var(--brand-color);
+  -webkit-text-fill-color: var(--brand-color);
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  font-family: var(--font-body);
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.2px;
+}
+
+.sidebar-menu li:hover {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+}
+
+.sidebar-menu li.active {
+  background-color: var(--brand-color);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+}
+
+.icon {
+  margin-right: 14px;
+  font-size: 1.2rem;
+}
+
+.menu-badge {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-main);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  margin-left: auto;
+  font-weight: 600;
+}
+
+/* Sidebar Footer Credit */
+.sidebar-footer {
+  border-top: 1px solid #141419;
+  padding-top: 1.2rem;
+  margin-top: auto;
+}
+
+.developer-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #4b5563;
+  margin: 0;
+  font-weight: 600;
+}
+
+.developer-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin: 0.2rem 0 0 0;
+  letter-spacing: 0.5px;
+}
+
+/* Main Content Headings & Layout Rows */
+.main-content-window {
+  flex: 1;
+  padding: 3rem 3.5rem;
+  overflow-y: auto;
+}
+
+.main-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.main-header-row h2 {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin-top: 0;
+  letter-spacing: -0.3px;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-top: -1rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+/* Option 2: Search Input System Styling */
+.search-box {
+  position: relative;
+  width: 320px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.search-box input {
+  width: 100%;
+  background-color: var(--bg-surface);
+  border: 1px solid #1c1c24;
+  border-radius: 30px;
+  padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+  box-sizing: border-box;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #3b3b4f;
+  background-color: var(--bg-surface-hover);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.02);
+}
+
+.clear-search {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* Option 2: Filter Chips Layout */
+.genre-chips-container {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.genre-chip {
+  background-color: var(--bg-surface);
+  border: 1px solid #1c1c24;
+  color: var(--text-dim);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.genre-chip:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-main);
+}
+
+.genre-chip.active {
+  background-color: var(--text-main);
+  color: #000000;
+  font-weight: 600;
+  border-color: var(--text-main);
+}
+
+/* Movie Cards Grid System */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 2.2rem;
+}
+
+.movie-card {
+  background-color: var(--bg-surface);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  border: 1px solid #1c1c24;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  border-color: #2e2e3d;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.7);
+}
+
+.poster-container {
+  position: relative;
+  height: 320px;
+  width: 100%;
+  background-color: #1a1a24;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.action-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 4, 6, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.movie-card:hover .action-overlay {
+  opacity: 1;
+}
+
+.play-btn, .card-watchlist-btn {
+  width: 80%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.play-btn {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.play-btn:hover {
+  transform: scale(1.03);
+  background-color: #f1f1f4;
+}
+
+.card-watchlist-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-watchlist-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-watchlist-btn.added {
+  background-color: var(--brand-color);
+  border-color: var(--brand-color);
+}
+
+.movie-details {
+  padding: 1.2rem;
+}
+
+.movie-details h3 {
+  font-family: var(--font-display);
+  margin: 0 0 0.6rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+}
+
+.genre {
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.duration {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.badge-match {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: #10b981;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  z-index: 2;
+  letter-spacing: 0.3px;
+}
+
+/* Option 3: Cinematic Modal Pop-up System Layout */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  width: 850px;
+  max-width: 90%;
+  background-color: var(--bg-surface);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #2e2e3d;
+  box-shadow: 0 25px 55px rgba(0,0,0,0.8);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.close-modal-btn:hover {
+  background-color: var(--brand-color);
+  border-color: var(--brand-color);
+}
+
+.modal-hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+
+.modal-hero-details {
+  padding: 3.5rem;
+  width: 100%;
+}
+
+.modal-hero-details h1 {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.modal-meta-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-year {
+  font-weight: 600;
+}
+
+.modal-rating {
+  border: 1px solid var(--text-dim);
+  padding: 0.1rem 0.4rem;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+.modal-duration {
+  color: #cbd5e1;
+}
+
+.modal-genre-tag {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.modal-synopsis {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0 0 2.5rem 0;
+  max-width: 620px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-play-btn {
+  background-color: var(--brand-color);
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+}
+
+.modal-play-btn:hover {
+  background-color: #b80710;
+}
+
+.modal-watchlist-btn {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-watchlist-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.modal-watchlist-btn.active {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+/* Core Interface Animation Sets */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Watch History Cards */
+.history-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.mini-poster {
+  height: 65px !important;
+  width: 100px !important;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.history-timestamp {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #10b981;
+  font-weight: 500;
+}
+
+.empty-message {
+  font-family: var(--font-body);
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-deep);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+}
+/* ==========================================================================
+   Option 4: Database Management Console / Admin Form UI Elements
+   ========================================================================== */
+.admin-wrapper {
+  max-width: 720px;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.admin-form {
+  background-color: var(--bg-surface);
+  border: 1px solid #1c1c24;
+  border-radius: 14px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.form-group-row {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.form-input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.form-input-block label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-dim);
+}
+
+.form-input-block input, 
+.form-input-block select, 
+.form-input-block textarea {
+  background-color: var(--bg-deep);
+  border: 1px solid #232330;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.form-input-block input:focus, 
+.form-input-block select:focus, 
+.form-input-block textarea:focus {
+  outline: none;
+  border-color: var(--brand-color);
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.15);
+}
+
+.form-input-block textarea {
+  resize: vertical;
+}
+
+.submit-form-btn {
+  background-color: var(--brand-color);
+  color: white;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+}
+
+.submit-form-btn:hover {
+  background-color: #b80710;
+  transform: translateY(-1px);
+}
+
+/* Success & Error Alert Boxes */
+.form-alert {
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.form-alert.success {
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid #10b981;
+  color: #10b981;
+}
+
+.form-alert.error {
+  background-color: rgba(229, 9, 20, 0.1);
+  border: 1px solid var(--brand-color);
+  color: var(--brand-color);
+}

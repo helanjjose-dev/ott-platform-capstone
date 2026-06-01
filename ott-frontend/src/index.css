@@ -1,0 +1,136 @@
+/* Premium Dark Mode Theme Variables */
+:root {
+  --bg-dark: #141414;
+  --bg-card: #181818;
+  --bg-card-hover: #232323;
+  --accent-red: #E50914;
+  --text-main: #FFFFFF;
+  --text-muted: #AAAAAA;
+}
+
+/* Global Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* App Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sleek Sticky Navbar */
+.navbar {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  background-color: #000000;
+  padding: 1.2rem 4%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+  color: var(--accent-red);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Content Container */
+.content {
+  padding: 2rem 4%;
+  flex: 1;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+/* Dynamic Movie Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Cinematic Movie Card Style */
+.movie-card {
+  background-color: var(--bg-card);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-bottom: 3px solid transparent;
+}
+
+/* Modern Hover Effect */
+.movie-card:hover {
+  transform: scale(1.05);
+  background-color: var(--bg-card-hover);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+  border-bottom: 3px solid var(--accent-red);
+}
+
+.movie-card h3 {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Detail Badges */
+.movie-card p {
+  margin: 0.4rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-card p strong {
+  color: #777;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.genre, .duration {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+
+/* Loading & Error States */
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: var(--bg-dark);
+  letter-spacing: 1px;
+}
+
+.error {
+  color: var(--accent-red);
+}
